@@ -1,8 +1,11 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import NextImage from "next/image";
 import logo from "@/assets/logo-new.png";
 
 const institutionalDropdown = [
@@ -67,8 +70,10 @@ export function Header() {
       <nav className="container-academy flex items-center justify-between py-3">
         {/* Logo + Desktop Navigation */}
         <div className="flex items-center gap-6 xl:gap-8 2xl:gap-10">
-          <Link to="/" className="flex-shrink-0">
-            <img src={logo} alt="Aliko Academy Health" className="h-12 xl:h-14 2xl:h-16 w-auto object-contain" />
+          <Link href="/" className="flex-shrink-0">
+            <div className="relative h-12 xl:h-14 2xl:h-16 w-32 xl:w-40 2xl:w-48">
+              <NextImage src={logo} alt="Aliko Academy Health" fill className="object-contain" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -88,7 +93,7 @@ export function Header() {
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
-                          to={sub.href}
+                          href={sub.href}
                           onClick={() => setDropdownOpen(false)}
                           className="block px-4 py-2.5 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
                         >
@@ -101,7 +106,7 @@ export function Header() {
               ) : (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className="text-sm font-semibold text-white hover:text-teal transition-colors whitespace-nowrap relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all hover:after:w-full"
                 >
                   {item.name}
@@ -123,7 +128,7 @@ export function Header() {
                   {moreLinks.map((link) => (
                     <Link
                       key={link.href}
-                      to={link.href}
+                      href={link.href}
                       onClick={() => setMoreOpen(false)}
                       className="block px-4 py-2.5 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
                     >
@@ -138,11 +143,11 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:items-center lg:gap-3 flex-shrink-0">
-          <Link to="/student-login" className="px-3 py-1.5 rounded-md bg-accent text-white font-semibold text-sm hover:bg-accent/90 transition-colors whitespace-nowrap">
+          <Link href="/login" className="px-3 py-1.5 rounded-md bg-accent text-white font-semibold text-sm hover:bg-accent/90 transition-colors whitespace-nowrap">
             Student Login
           </Link>
           <Button asChild size="sm" className="bg-[hsl(0,72%,45%)] text-white hover:bg-[hsl(0,72%,38%)] text-sm whitespace-nowrap">
-            <Link to="/apply">Apply Now</Link>
+            <Link href="/apply">Apply Now</Link>
           </Button>
         </div>
 
@@ -188,7 +193,7 @@ export function Header() {
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.href}
-                      to={sub.href}
+                      href={sub.href}
                       className="block text-sm text-muted-foreground hover:text-primary transition-colors py-1"
                       onClick={() => { setMobileMenuOpen(false); setMobileDropdownOpen(false); }}
                     >
@@ -200,7 +205,7 @@ export function Header() {
             ) : (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className="block text-base font-medium text-foreground hover:text-teal transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -210,14 +215,14 @@ export function Header() {
           )}
           <div className="pt-4 border-t border-border space-y-3">
             <Link
-              to="/student-login"
+              href="/login"
               className="block text-base font-bold text-accent hover:text-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
               Student Login
             </Link>
             <Button asChild className="w-full">
-              <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/apply" onClick={() => setMobileMenuOpen(false)}>
                 Apply Now
               </Link>
             </Button>
