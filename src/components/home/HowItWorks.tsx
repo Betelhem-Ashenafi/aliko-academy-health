@@ -7,7 +7,7 @@ import {
   Briefcase,
   ArrowRight
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const steps = [
@@ -94,7 +94,7 @@ export function HowItWorks() {
         {/* CTA */}
         <div className="mt-12 text-center">
           <Button asChild size="lg" variant="outline" className="group">
-            <Link to="/apply">
+            <Link href="/apply">
               Start Your Journey Today
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
