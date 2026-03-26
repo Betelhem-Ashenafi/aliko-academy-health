@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
-import { useStateConfig } from "@/hooks/useStateConfig";
+"use client";
+
+import NextImage from "next/image";
+import Link from "next/link";
+import { useContext } from "react";
+import { StateContext } from "@/contexts/GlobalStateContext";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo-new.png";
 
@@ -31,7 +35,8 @@ const footerLinks = {
 };
 
 export function Footer() {
-  const { currentState } = useStateConfig();
+  const context = useContext(StateContext);
+  const currentState = context.currentState;
 
   return (
     <footer className="relative overflow-hidden">
@@ -53,7 +58,7 @@ export function Footer() {
                 </p>
               </div>
               <Link 
-                to="/apply"
+                href="/apply"
                 className="group flex items-center gap-2 px-6 py-3 bg-teal text-teal-foreground font-semibold rounded-lg hover:bg-teal/90 transition-all duration-300 shadow-lg whitespace-nowrap"
               >
                 Apply Now
@@ -71,7 +76,7 @@ export function Footer() {
                   {links.map((link) => (
                     <li key={link.name}>
                       <Link
-                        to={link.href}
+                        href={link.href}
                         className="text-sm text-white/70 hover:text-accent transition-colors duration-200"
                       >
                         {link.name}
@@ -87,8 +92,10 @@ export function Footer() {
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <Link to="/" className="inline-block mb-4 bg-white/10 rounded-lg p-2">
-                    <img src={logo} alt="Aliko Academy" className="h-20 w-auto" />
+                <Link href="/" className="inline-block mb-4 bg-white/10 rounded-lg p-2">
+                    <div className="relative h-20 w-40">
+                      <NextImage src={logo} alt="Aliko Academy" fill className="object-contain" />
+                    </div>
                 </Link>
                 <p className="text-sm text-white/70 max-w-xs">
                   Industry-aligned healthcare training with clear cohort start dates. Your pathway to a rewarding healthcare career.
