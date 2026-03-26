@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, GraduationCap, Clock, HeartHandshake } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import NextImage from "next/image";
 import heroPoster from "@/assets/hero-poster.jpg";
 
 export function HeroSection() {
@@ -12,7 +13,7 @@ export function HeroSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
-        videoRef.current.src = new URL("@/assets/hero-video.mp4", import.meta.url).href;
+        videoRef.current.src = "/hero-video.mp4";
         videoRef.current.load();
       }
     }, 100);
@@ -43,10 +44,12 @@ export function HeroSection() {
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Poster Background */}
       <div className="absolute inset-0 z-0">
-        <img
+        <NextImage
           src={heroPoster}
           alt=""
-          className={`w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? "opacity-0" : "opacity-100"}`}
+          fill
+          priority
+          className={`object-cover transition-opacity duration-700 ${videoLoaded ? "opacity-0" : "opacity-100"}`}
         />
       </div>
 
@@ -92,7 +95,7 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="text-base shadow-lg hover:shadow-xl transition-shadow">
-              <Link to="/programs">
+              <Link href="/programs">
                 View Programs
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -103,7 +106,7 @@ export function HeroSection() {
               variant="outline"
               className="text-base bg-[hsl(0,72%,50%)] border-[hsl(0,72%,50%)] text-white hover:bg-[hsl(0,72%,42%)] shadow-lg hover:shadow-xl transition-all"
             >
-              <Link to="/apply">Apply Now</Link>
+              <Link href="/apply">Apply Now</Link>
             </Button>
           </div>
 
