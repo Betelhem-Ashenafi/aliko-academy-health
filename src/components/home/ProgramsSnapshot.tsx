@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { programs as staticPrograms } from "@/data/programs";
@@ -7,6 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Calendar, BookOpen, ArrowRight, Sparkles, GraduationCap } from "lucide-react";
+import NextImage from "next/image";
 
 export function ProgramsSnapshot() {
   const [dbPrograms, setDbPrograms] = useState<any[]>([]);
@@ -56,7 +59,12 @@ export function ProgramsSnapshot() {
               {/* Thumbnail */}
               {(program.image_url || program.image) ? (
                 <div className="aspect-[16/10] relative overflow-hidden">
-                  <img src={program.image_url || program.image} alt={program.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <NextImage 
+                    src={program.image_url || program.image} 
+                    alt={program.name} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                   {program.featured && (
                     <Badge className="absolute top-2 left-2 bg-accent text-accent-foreground text-xs">
                       <Sparkles className="h-3 w-3 mr-1" /> Featured
@@ -103,7 +111,7 @@ export function ProgramsSnapshot() {
                   asChild className="w-full group/btn" size="sm"
                   variant={program.enrollmentStatus === "open" ? "default" : "outline"}
                 >
-                  <Link to={`/programs/${program.id}`}>
+                  <Link href={`/programs/${program.id}`}>
                     {program.enrollmentStatus === "open" ? "Apply Now" : "View Details"}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
@@ -115,7 +123,7 @@ export function ProgramsSnapshot() {
 
         <div className="mt-12 text-center">
           <Button asChild variant="outline" size="lg" className="group">
-            <Link to="/programs">
+            <Link href="/programs">
               View All Programs
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -125,7 +133,7 @@ export function ProgramsSnapshot() {
         {/* Exam Review & Preparation Section */}
         <div className="mt-24 pt-16 border-t border-border">
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+            <span className="inline-block items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
               <BookOpen className="h-4 w-4" />
               Supplemental Education
             </span>
@@ -142,7 +150,12 @@ export function ProgramsSnapshot() {
               <Card key={program.id} className="group flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-accent/20 overflow-hidden">
                 {program.image && (
                   <div className="aspect-[16/10] relative overflow-hidden">
-                    <img src={program.image} alt={program.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <NextImage 
+                      src={program.image} 
+                      alt={program.name} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
                 )}
                 <CardHeader className="pb-3">
@@ -170,7 +183,7 @@ export function ProgramsSnapshot() {
                 </CardContent>
                 <CardFooter className="pt-0">
                   <Button asChild className="w-full group/btn" variant={program.enrollmentStatus === "open" ? "default" : "outline"}>
-                    <Link to={`/exam-prep/${program.id}`}>
+                    <Link href={`/exam-prep/${program.id}`}>
                       {program.enrollmentStatus === "open" ? "Enroll Now" : "View Details"}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
@@ -182,7 +195,7 @@ export function ProgramsSnapshot() {
 
           <div className="mt-8 text-center">
             <Button asChild variant="outline" size="lg" className="group">
-              <Link to="/exam-prep">
+              <Link href="/exam-prep">
                 View All Exam Prep Courses
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
