@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/tuition/layout,_N_T_/tuition/page,_N_T_/tuition"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/tuition/__PAGE__",
+    "/tuition",
+    "/_index",
+    "/_head"
+  ]
+}

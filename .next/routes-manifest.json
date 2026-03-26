@@ -1,0 +1,268 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/exam-prep/[programId]",
+      "regex": "^/exam\\-prep/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPprogramId": "nxtPprogramId"
+      },
+      "namedRegex": "^/exam\\-prep/(?<nxtPprogramId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/institutional-training/[categorySlug]",
+      "regex": "^/institutional\\-training/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategorySlug": "nxtPcategorySlug"
+      },
+      "namedRegex": "^/institutional\\-training/(?<nxtPcategorySlug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/programs/[programId]",
+      "regex": "^/programs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPprogramId": "nxtPprogramId"
+      },
+      "namedRegex": "^/programs/(?<nxtPprogramId>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/accreditation",
+      "regex": "^/accreditation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/accreditation(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/applications",
+      "regex": "^/admin/applications(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/applications(?:/)?$"
+    },
+    {
+      "page": "/admin/cohorts",
+      "regex": "^/admin/cohorts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/cohorts(?:/)?$"
+    },
+    {
+      "page": "/admin/content",
+      "regex": "^/admin/content(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/content(?:/)?$"
+    },
+    {
+      "page": "/admin/enterprise-leads",
+      "regex": "^/admin/enterprise\\-leads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/enterprise\\-leads(?:/)?$"
+    },
+    {
+      "page": "/admin/exam-prep",
+      "regex": "^/admin/exam\\-prep(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/exam\\-prep(?:/)?$"
+    },
+    {
+      "page": "/admin/institutional",
+      "regex": "^/admin/institutional(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/institutional(?:/)?$"
+    },
+    {
+      "page": "/admin/login",
+      "regex": "^/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/login(?:/)?$"
+    },
+    {
+      "page": "/admin/partners",
+      "regex": "^/admin/partners(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/partners(?:/)?$"
+    },
+    {
+      "page": "/admin/partnerships",
+      "regex": "^/admin/partnerships(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/partnerships(?:/)?$"
+    },
+    {
+      "page": "/admin/programs",
+      "regex": "^/admin/programs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/programs(?:/)?$"
+    },
+    {
+      "page": "/admin/students",
+      "regex": "^/admin/students(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/students(?:/)?$"
+    },
+    {
+      "page": "/admissions",
+      "regex": "^/admissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admissions(?:/)?$"
+    },
+    {
+      "page": "/apply",
+      "regex": "^/apply(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/apply(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/career-services",
+      "regex": "^/career\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/career\\-services(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/enterprise",
+      "regex": "^/enterprise(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/enterprise(?:/)?$"
+    },
+    {
+      "page": "/exam-prep",
+      "regex": "^/exam\\-prep(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/exam\\-prep(?:/)?$"
+    },
+    {
+      "page": "/institutional-training",
+      "regex": "^/institutional\\-training(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/institutional\\-training(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/partners",
+      "regex": "^/partners(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/partners(?:/)?$"
+    },
+    {
+      "page": "/partnerships",
+      "regex": "^/partnerships(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/partnerships(?:/)?$"
+    },
+    {
+      "page": "/policies",
+      "regex": "^/policies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/policies(?:/)?$"
+    },
+    {
+      "page": "/programs",
+      "regex": "^/programs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/programs(?:/)?$"
+    },
+    {
+      "page": "/resources",
+      "regex": "^/resources(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources(?:/)?$"
+    },
+    {
+      "page": "/schedule",
+      "regex": "^/schedule(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/schedule(?:/)?$"
+    },
+    {
+      "page": "/tuition",
+      "regex": "^/tuition(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tuition(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

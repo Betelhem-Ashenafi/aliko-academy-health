@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/institutional-training/layout,_N_T_/institutional-training/page,_N_T_/institutional-training"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/institutional-training/__PAGE__",
+    "/institutional-training",
+    "/_index",
+    "/_head"
+  ]
+}
