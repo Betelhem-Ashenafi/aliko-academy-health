@@ -1,0 +1,27 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { StateProvider } from "@/contexts/GlobalStateContext";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <StateProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            {children}
+          </TooltipProvider>
+        </StateProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  );
+}
