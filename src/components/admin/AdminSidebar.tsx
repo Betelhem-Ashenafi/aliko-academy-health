@@ -1,3 +1,5 @@
+"use client";
+
 import {
   LayoutDashboard,
   GraduationCap,
@@ -11,7 +13,7 @@ import {
   Handshake,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   Sidebar,
@@ -26,6 +28,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import logo from "@/assets/logo-new.png";
 
 const mainNav = [
@@ -45,19 +48,15 @@ const mainNav = [
 export function AdminSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const location = useLocation();
   const { signOut } = useAuth();
-
-  const isActive = (path: string) =>
-    path === "/admin"
-      ? location.pathname === "/admin"
-      : location.pathname.startsWith(path);
 
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
         <div className="p-4 flex items-center gap-2">
-          <img src={logo} alt="Aliko" className="h-8 w-auto" />
+          <div className="relative h-8 w-8">
+             <Image src={logo} alt="Aliko" fill className="object-contain" />
+          </div>
           {!collapsed && <span className="font-semibold text-sm">Admin</span>}
         </div>
 
@@ -69,9 +68,9 @@ export function AdminSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink
-                      to={item.url}
+                      href={item.url}
                       end={item.url === "/admin"}
-                      className="hover:bg-muted/50"
+                      className="hover:bg-muted/50 flex items-center w-full h-full px-2 py-1.5"
                       activeClassName="bg-muted text-primary font-medium"
                     >
                       <item.icon className="mr-2 h-4 w-4" />
