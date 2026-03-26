@@ -1,8 +1,11 @@
+"use client";
+
 import { useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Upload, X, Image as ImageIcon } from "lucide-react";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface ImageUploadProps {
   bucket: string;
@@ -46,13 +49,13 @@ export function ImageUpload({ bucket, folder, currentUrl, onUploaded, onRemoved 
     <div className="space-y-2">
       {currentUrl ? (
         <div className="relative w-full h-32 rounded-lg overflow-hidden border border-border">
-          <img src={currentUrl} alt="Thumbnail" className="w-full h-full object-cover" />
+          <Image src={currentUrl} alt="Thumbnail" fill className="object-cover" />
           {onRemoved && (
             <Button
               type="button"
               variant="destructive"
               size="icon"
-              className="absolute top-1 right-1 h-6 w-6"
+              className="absolute top-1 right-1 h-6 w-6 z-10"
               onClick={onRemoved}
             >
               <X className="h-3 w-3" />
