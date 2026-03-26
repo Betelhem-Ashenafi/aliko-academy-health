@@ -1,0 +1,2 @@
+# Bun lockfile detected
+# This project is being switched to npm. The bun.lockb file is not needed and can be deleted.
